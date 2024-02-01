@@ -19,17 +19,13 @@ def display_numbers_on_monitors():
         win = create_monitor_window(monitor, i)
         windows.append(win)
 
-    # This line creates a temporary invisible main window for dialog
     root = tk.Tk()
-    root.withdraw()  # We don't want a full GUI, so keep the root window from appearing
-    # Show an input dialog to the user to select the monitor number
+    root.withdraw()
     choice = simpledialog.askinteger("Monitor Selection", "Enter the monitor number you want to use:")
 
-    # Close all monitor windows
     for win in windows:
         win.destroy()
 
-    # Also destroy the temporary dialog parent window
     root.destroy()
 
     return choice
